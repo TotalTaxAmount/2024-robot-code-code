@@ -58,7 +58,7 @@ public class VisionUtils {
     public static double getDistanceFromTag() {
         Pose3d returnedPose = getBotPoseTargetSpace();
 
-        return -returnedPose.getZ();
+        return -returnedPose.getZ() != 0 ? -returnedPose.getZ() : 1.0;
     }
 
     /**

@@ -72,6 +72,8 @@ public class SwerveSubsystem extends SubsystemBase {
     // Slew Rate Time
     private double previousTime = WPIUtilJNI.now() * 1e-6;
 
+    private NetworkTableUtils networkTableDebug = new NetworkTableUtils("Debug");
+
     // Limelight Network Table
     // Relay data to driverstation using network table
     private final NetworkTableUtils limelightTable = new NetworkTableUtils("limelight");
@@ -138,6 +140,8 @@ public class SwerveSubsystem extends SubsystemBase {
             .getTable("Swerve").getDoubleTopic("rlpos").getEntry(rearLeft.getPosition().angle.getRadians());
 
     public SwerveSubsystem() {
+        this.networkTableDebug.setDouble("Path_X", 0.0);
+        this.networkTableDebug.setDouble("Path_Y", 0.0);
         // PathPlanner stuff
         AutoBuilder.configureHolonomic(
                 this::getPose,
@@ -180,6 +184,7 @@ public class SwerveSubsystem extends SubsystemBase {
 
             double visionTrust = 0.075 * Math.pow(distanceToTag, 2.5);
             double rotationVisionTrust = Math.pow(distanceToTag, 2.5) / 5;
+            System.out.println(distanceToTag);
 
             if (distanceToTag < 3) {
                 poseEstimator.setVisionMeasurementStdDevs(
@@ -254,6 +259,10 @@ public class SwerveSubsystem extends SubsystemBase {
      */
     public SwerveDrivePoseEstimator getPoseEstimator() {
         return this.poseEstimator;
+    }
+
+    public NetworkTableUtils getDebugNT() {
+        return this.networkTableDebug;
     }
 
     /**
