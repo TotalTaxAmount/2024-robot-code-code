@@ -10,6 +10,7 @@ import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.units.Units;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.SwerveSubsystem;
+import frc.robot.utils.NetworkTableUtils;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class PathCommand extends Command {
 
     private PathPlannerPath path;
 
+
     public PathCommand(SwerveSubsystem swerveSubsystem) {
         this.swerveSubsystem = swerveSubsystem;
     }
@@ -26,11 +28,13 @@ public class PathCommand extends Command {
     @Override
     public void initialize() {
         Pose2d startPos = new Pose2d(
-                swerveSubsystem.getPoseEstimator().getEstimatedPosition().getTranslation(),
+                swerveSubsystem.getPose().getTranslation(),
                 new Rotation2d()
         );
 
-        Pose2d endPos = new Pose2d(startPos.getTranslation().plus(new Translation2d(0.5, 1)), new Rotation2d());
+        Pose2d endPos = new Pose2d(startPos.getTranslation().plus(new Translation2d(
+                swerveSubsystem.getDebugNT().getDouble("Path_X", 0.0),
+                swerveSubsystem.getDebugNT().getDouble("Path_Y", 0.0))), new Rotation2d());
 
         List<Translation2d> bezierPoints = PathPlannerPath.bezierFromPoses(startPos, endPos);
         path = new PathPlannerPath(
