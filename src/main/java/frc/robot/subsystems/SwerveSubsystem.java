@@ -108,10 +108,10 @@ public class SwerveSubsystem extends SubsystemBase {
             new Pose2d(),
 
             // How much we trust the wheel measurements
-            VecBuilder.fill(0.05, 0.05, Units.degreesToRadians(10)),
+            VecBuilder.fill(0.1, 0.1, Units.degreesToRadians(5)),
 
             // How much we trust the vision measurements
-            VecBuilder.fill(0.05 * distanceToTag, 0.05 * distanceToTag, Units.degreesToRadians(30 * (distanceToTag / 5.0))));
+            VecBuilder.fill(0.5, 0.5, Units.degreesToRadians(10)));
 
     // Network Tables Telemetry
     private final DoubleArrayEntry setpointsTelemetry = NetworkTableInstance.getDefault()
@@ -180,26 +180,26 @@ public class SwerveSubsystem extends SubsystemBase {
         Pose3d visionMeasurement = VisionUtils.getBotPoseFieldSpace();
 
         if (visionMeasurement.getY() != 0 || visionMeasurement.getX() != 0) {
-            distanceToTag = VisionUtils.getDistanceFromTag();
+//            distanceToTag = VisionUtils.getDistanceFromTag();
+//
+//            double visionTrust = 0.075 * Math.pow(distanceToTag, 2.5);
+//            double rotationVisionTrust = Math.pow(distanceToTag, 2.5) / 5;
+//            System.out.println(distanceToTag);
 
-            double visionTrust = 0.075 * Math.pow(distanceToTag, 2.5);
-            double rotationVisionTrust = Math.pow(distanceToTag, 2.5) / 5;
-            System.out.println(distanceToTag);
-
-            if (distanceToTag < 3) {
-                poseEstimator.setVisionMeasurementStdDevs(
-                        VecBuilder.fill(
-                                visionTrust,
-                                visionTrust,
-                                Units.degreesToRadians(20 * ((distanceToTag < 1.5) ? rotationVisionTrust : 9999))
-                        )
-                );
-            } else {
-                // If we're 3 meters away, limelight is too unreliable. Don't trust it!
-                poseEstimator.setVisionMeasurementStdDevs(
-                        VecBuilder.fill(9999, 9999, 9999)
-                );
-            }
+//            if (distanceToTag < 3) {
+//                poseEstimator.setVisionMeasurementStdDevs(
+//                        VecBuilder.fill(
+//                                distanceToTag,
+//                                distanceToTag,
+//                                Units.degreesToRadians(distanceToTag * 100) // 20 * ((distanceToTag < 1.5) ? rotationVisionTrust : 9999)
+//                        )
+//                );
+//            } else {
+//                // If we're 3 meters away, limelight is too unreliable. Don't trust it!
+//                poseEstimator.setVisionMeasurementStdDevs(
+//                        VecBuilder.fill(9999, 9999, 9999)
+//                );
+//            }
 
             poseEstimator.addVisionMeasurement(
                     new Pose2d(
