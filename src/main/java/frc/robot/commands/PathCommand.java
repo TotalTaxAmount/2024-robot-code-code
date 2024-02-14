@@ -20,9 +20,13 @@ public class PathCommand extends Command {
 
     private PathPlannerPath path;
 
+    private Translation2d endPose;
 
-    public PathCommand(SwerveSubsystem swerveSubsystem) {
+
+    public PathCommand(SwerveSubsystem swerveSubsystem, Translation2d endPose) {
         this.swerveSubsystem = swerveSubsystem;
+        this.endPose = endPose;
+
         addRequirements(swerveSubsystem);
     }
 
@@ -33,9 +37,7 @@ public class PathCommand extends Command {
                 new Rotation2d()
         );
 
-        Pose2d endPos = new Pose2d(startPos.getTranslation().plus(new Translation2d(
-                swerveSubsystem.getDebugNT().getDouble("Path_X", 0.0),
-                swerveSubsystem.getDebugNT().getDouble("Path_Y", 0.0))), new Rotation2d());
+        Pose2d endPos = new Pose2d(endPose, new Rotation2d());
 
         List<Translation2d> bezierPoints = PathPlannerPath.bezierFromPoses(startPos, endPos);
         path = new PathPlannerPath(
@@ -53,8 +55,9 @@ public class PathCommand extends Command {
 
     }
 
-//    @Override
-//    public void execute() {
-//    }
+    @Override
+    public void end(boolean i) {
+        swerveSubsystem.drive(0, 0, 0, false, false);
+    }
 
 }
