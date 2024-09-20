@@ -118,6 +118,10 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/constants/IndexerConstants.html#centerLimebreakID" class="member-name-link">centerLimebreakID</a> - Static variable in class frc.robot.constants.<a href="frc/robot/constants/IndexerConstants.html" title="class in frc.robot.constants">IndexerConstants</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="frc/robot/utils/MathUtils.html#clamp(double,double,double)" class="member-name-link">clamp(double, double, double)</a> - Static method in class frc.robot.utils.<a href="frc/robot/utils/MathUtils.html" title="class in frc.robot.utils">MathUtils</a></dt>
+<dd>
+<div class="block">Clamp a value to a minimum and a maximum</div>
+</dd>
 <dt><a href="frc/robot/commands/ClimbCommand.html" class="type-name-link" title="class in frc.robot.commands">ClimbCommand</a> - Class in <a href="frc/robot/commands/package-summary.html">frc.robot.commands</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/ClimbCommand.html#%3Cinit%3E(frc.robot.subsystems.ClimberSubsystem,frc.robot.commands.ClimbCommand.Climb)" class="member-name-link">ClimbCommand(ClimberSubsystem, ClimbCommand.Climb)</a> - Constructor for class frc.robot.commands.<a href="frc/robot/commands/ClimbCommand.html" title="class in frc.robot.commands">ClimbCommand</a></dt>
@@ -476,8 +480,6 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/SpinUpCommand.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/SpinUpCommand.html" title="class in frc.robot.commands">SpinUpCommand</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="frc/robot/utils/MathUtils.html#inRange(double,double,double)" class="member-name-link">inRange(double, double, double)</a> - Static method in class frc.robot.utils.<a href="frc/robot/utils/MathUtils.html" title="class in frc.robot.utils">MathUtils</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/AutoIntakeOrShoot.Goal.html#INTAKE" class="member-name-link">INTAKE</a> - Enum constant in enum class frc.robot.commands.<a href="frc/robot/commands/AutoIntakeOrShoot.Goal.html" title="enum class in frc.robot.commands">AutoIntakeOrShoot.Goal</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/IntakeCommand.html" class="type-name-link" title="class in frc.robot.commands">IntakeCommand</a> - Class in <a href="frc/robot/commands/package-summary.html">frc.robot.commands</a></dt>
@@ -504,6 +506,8 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Check if center limebreak is seeing something</div>
 </dd>
+<dt><a href="frc/robot/commands/AutoIntakeOrShoot.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/AutoIntakeOrShoot.html" title="class in frc.robot.commands">AutoIntakeOrShoot</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/IntakeCommand.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/IntakeCommand.html" title="class in frc.robot.commands">IntakeCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/subsystems/IndexerSubsystem.html#isIndexerRotated()" class="member-name-link">isIndexerRotated()</a> - Method in class frc.robot.subsystems.<a href="frc/robot/subsystems/IndexerSubsystem.html" title="class in frc.robot.subsystems">IndexerSubsystem</a></dt>
@@ -624,6 +628,10 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/constants/DrivetrainConstants.html#rearRightTurningPort" class="member-name-link">rearRightTurningPort</a> - Static variable in class frc.robot.constants.<a href="frc/robot/constants/DrivetrainConstants.html" title="class in frc.robot.constants">DrivetrainConstants</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="frc/robot/utils/TimingUtils.html#reset()" class="member-name-link">reset()</a> - Method in class frc.robot.utils.<a href="frc/robot/utils/TimingUtils.html" title="class in frc.robot.utils">TimingUtils</a></dt>
+<dd>
+<div class="block">Reset the timer</div>
+</dd>
 <dt><a href="frc/robot/controllers/SwerveModuleControlller.html#resetEncoders()" class="member-name-link">resetEncoders()</a> - Method in class frc.robot.controllers.<a href="frc/robot/controllers/SwerveModuleControlller.html" title="class in frc.robot.controllers">SwerveModuleControlller</a></dt>
 <dd>
 <div class="block">This function resets all encoders for the swerve module</div>
@@ -721,6 +729,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="frc/robot/utils/MathUtils.html#rpmToRadians(double)" class="member-name-link">rpmToRadians(double)</a> - Static method in class frc.robot.utils.<a href="frc/robot/utils/MathUtils.html" title="class in frc.robot.utils">MathUtils</a></dt>
 <dd>
 <div class="block">Converts RPM to Radians</div>
+</dd>
+<dt><a href="frc/robot/utils/TimingUtils.html#runEvery(java.lang.Runnable,double)" class="member-name-link">runEvery(Runnable, double)</a> - Method in class frc.robot.utils.<a href="frc/robot/utils/TimingUtils.html" title="class in frc.robot.utils">TimingUtils</a></dt>
+<dd>
+<div class="block">Run a snippet of code every [mills] ms (should be called in periodic)</div>
 </dd>
 </dl>
 <h2 class="title" id="I:S">S</h2>
@@ -916,6 +928,12 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/constants/ShooterConstants.html#timeToSpeakerHeightWithGravity" class="member-name-link">timeToSpeakerHeightWithGravity</a> - Static variable in class frc.robot.constants.<a href="frc/robot/constants/ShooterConstants.html" title="class in frc.robot.constants">ShooterConstants</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="frc/robot/utils/TimingUtils.html" class="type-name-link" title="class in frc.robot.utils">TimingUtils</a> - Class in <a href="frc/robot/utils/package-summary.html">frc.robot.utils</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="frc/robot/utils/TimingUtils.html#%3Cinit%3E()" class="member-name-link">TimingUtils()</a> - Constructor for class frc.robot.utils.<a href="frc/robot/utils/TimingUtils.html" title="class in frc.robot.utils">TimingUtils</a></dt>
+<dd>
+<div class="block">Timing related utilities</div>
+</dd>
 <dt><a href="frc/robot/subsystems/IndexerSubsystem.IndexerMotors.html#TOP_WHEEL" class="member-name-link">TOP_WHEEL</a> - Enum constant in enum class frc.robot.subsystems.<a href="frc/robot/subsystems/IndexerSubsystem.IndexerMotors.html" title="enum class in frc.robot.subsystems">IndexerSubsystem.IndexerMotors</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/constants/IndexerConstants.html#topMotorID" class="member-name-link">topMotorID</a> - Static variable in class frc.robot.constants.<a href="frc/robot/constants/IndexerConstants.html" title="class in frc.robot.constants">IndexerConstants</a></dt>
